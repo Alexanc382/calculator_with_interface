@@ -8,6 +8,7 @@ second = 0
 
 def calc():
     second = float(entry.get())
+    result = None
     if oper == '+':
         result = c.add(first, second)
     elif oper == '-':
@@ -16,10 +17,6 @@ def calc():
         result = c.multiply(first, second)
     elif    oper == '/':
         result = c.divide(first, second)
-    elif oper == '**2':
-        result = c.square(first)
-    elif oper == '**3':
-        result = c.cube(first)
     entry.delete(0, END)
     entry.insert(0, str(result))
 
@@ -37,13 +34,18 @@ def set_operation(operation):
     entry.delete(0, END)
 
 
-def set_exponen_2():
+def set_exponen_2(first):
+    first = float(entry.get())
+    entry.delete(0, END)
+    result_ex_2 = c.square(first)
+    entry.insert(0, str(result_ex_2))
 
 
-
-
-def set_exponen_3():
-
+def set_exponen_3(first):
+    first = float(entry.get())
+    entry.delete(0, END)
+    result_ex_3 = c.cube(first)
+    entry.insert(0, str(result_ex_3))
 
 def validate_entry():
     e = entry.get()
@@ -75,8 +77,8 @@ ttk.Button(text='-', command=lambda: set_operation('-')).grid(row=4, column=2)
 ttk.Button(text='*', command=lambda: set_operation('*')).grid(row=5, column=0)
 ttk.Button(text='/', command=lambda: set_operation('/')).grid(row=5, column=1)
 
-ttk.Button(text='x²', command=set_exponen_2()).grid(row=5, column=2)
-ttk.Button(text='x³', command=set_exponen_3()).grid(row=6, column=0)
+ttk.Button(text='x²', command=lambda: set_exponen_2('first')).grid(row=5, column=2)
+ttk.Button(text='x³', command=lambda: set_exponen_3('first')).grid(row=6, column=0)
 
 ttk.Button(text='C', command=clear_entry).grid(row=6, column=1)
 ttk.Button(text='=', command=calc).grid(row=6, column=2)

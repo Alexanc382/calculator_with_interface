@@ -16,8 +16,8 @@ def divide(a, b):
     except ZeroDivisionError:
         return "Ошибка! Делить на ноль нельзя!"
 
-def square(first):
-    return first ** 2
+def square(a):
+    return a ** 2
 
-def cube(first):
-    return first ** 3
+def cube(a):
+    return a ** 3
