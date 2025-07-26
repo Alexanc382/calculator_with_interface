@@ -13,9 +13,9 @@ def calc():
         result = c.add(first, second)
     elif oper == '-':
         result = c.subtraction(first, second)
-    elif    oper == '*':
+    elif oper == '*':
         result = c.multiply(first, second)
-    elif    oper == '/':
+    elif oper == '/':
         result = c.divide(first, second)
     entry.delete(0, END)
     entry.insert(0, str(result))
