@@ -11,10 +11,10 @@ def multiply(a, b):  # имена аргументов могут быть лю�
 
 
 def divide(a, b):
-    try:
+        if b == 0:
+            raise ZeroDivisionError('Делить на ноль нельзя!')
         return a / b
-    except ZeroDivisionError:
-        return "Ошибка! Делить на ноль нельзя!"
+
 
 def square(a):
     return a ** 2
