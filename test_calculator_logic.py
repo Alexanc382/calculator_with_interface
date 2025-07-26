@@ -12,6 +12,7 @@ def test_add(): # тестируем сложение
     with pytest.raises(TypeError):
         c.add(5, 'text')
 
+
 def test_subtraction(): # тестируем вычитание
     assert c.subtraction(5, 10) == -5
     assert c.subtraction(4, -2) == 6
@@ -49,8 +50,28 @@ def test_divide(): # тестируем деление
         c.divide(10, 0)
 
 
+def test_square(): # тестируем возведение в степень 2
+    assert c.square(2) == 4
+    assert c.square(-2) == 4
+    assert c.square(0) == 0
+
+    with pytest.raises(TypeError):
+        c.square('text')
+
+
+def test_cube(): # тестируем возведение в степень 3
+    assert c.cube(2) == 8
+    assert (c.cube(-2) == -8)
+    assert c.cube(0) == 0
+
+    with pytest.raises(TypeError):
+        c.cube('text')
+
+
 test_add()
 test_subtraction()
 test_multiply()
 test_divide()
+test_square()
+test_cube()
 print('Тестирование прошло успешно')
