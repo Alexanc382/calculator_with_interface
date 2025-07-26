@@ -7,18 +7,22 @@ first = 0
 second = 0
 
 def calc():
-    second = float(entry.get())
-    result = None
-    if oper == '+':
-        result = c.add(first, second)
-    elif oper == '-':
-        result = c.subtraction(first, second)
-    elif oper == '*':
-        result = c.multiply(first, second)
-    elif oper == '/':
-        result = c.divide(first, second)
-    entry.delete(0, END)
-    entry.insert(0, str(result))
+    try:
+        second = float(entry.get())
+        result = None
+        if oper == '+':
+            result = c.add(first, second)
+        elif oper == '-':
+            result = c.subtraction(first, second)
+        elif oper == '*':
+            result = c.multiply(first, second)
+        elif oper == '/':
+            result = c.divide(first, second)
+        entry.delete(0, END)
+        entry.insert(0, str(result))
+    except ZeroDivisionError:
+        entry.delete(0, END)
+        entry.insert(0, 'На ноль делить нельзя')
 
 def enter_number(number):
     entry.insert(END, number)
